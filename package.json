@@ -1,0 +1,11 @@
+{
+  "name": "covidtracker",
+  "version": "0.0.1",
+  "description": "Webapp for tracking COVID-19 statistics.",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Derek Zhang <dr.derek.zhang@gmail.com>",
+  "license": "ISC"
+}
