@@ -1,0 +1,435 @@
+{
+    "states": {
+        "AL": {
+            "name": "Alabama",
+            "totalDeathsOneWeek": "1335",
+            "totalDeathsOneMonth": "1812",
+            "dailyCasesCurrent": "161",
+            "dailyCasesOneWeek": "171",
+            "dailyCasesOneMonth": "193"
+        },
+        "AK": {
+            "name": "Alaska",
+            "totalDeathsOneWeek": "22",
+            "totalDeathsOneMonth": "39",
+            "dailyCasesCurrent": "5",
+            "dailyCasesOneWeek": "6",
+            "dailyCasesOneMonth": "9"
+        },
+        "AZ": {
+            "name": "Arizona",
+            "totalDeathsOneWeek": "2882",
+            "totalDeathsOneMonth": "4170",
+            "dailyCasesCurrent": "532",
+            "dailyCasesOneWeek": "546",
+            "dailyCasesOneMonth": "531"
+        },
+        "AR": {
+            "name": "Arkansas",
+            "totalDeathsOneWeek": "414",
+            "totalDeathsOneMonth": "602",
+            "dailyCasesCurrent": "77",
+            "dailyCasesOneWeek": "80",
+            "dailyCasesOneMonth": "84"
+        },
+        "CA": {
+            "name": "California",
+            "totalDeathsOneWeek": "8192",
+            "totalDeathsOneMonth": "11022",
+            "dailyCasesCurrent": "1467",
+            "dailyCasesOneWeek": "1554",
+            "dailyCasesOneMonth": "1701"
+        },
+        "CO": {
+            "name": "Colorado",
+            "totalDeathsOneWeek": "1797",
+            "totalDeathsOneMonth": "1921",
+            "dailyCasesCurrent": "71",
+            "dailyCasesOneWeek": "77",
+            "dailyCasesOneMonth": "105"
+        },
+        "CT": {
+            "name": "Connecticut",
+            "totalDeathsOneWeek": "4411",
+            "totalDeathsOneMonth": "4442",
+            "dailyCasesCurrent": "10",
+            "dailyCasesOneWeek": "8",
+            "dailyCasesOneMonth": "5"
+        },
+        "DE": {
+            "name": "Delaware",
+            "totalDeathsOneWeek": "543",
+            "totalDeathsOneMonth": "588",
+            "dailyCasesCurrent": "8",
+            "dailyCasesOneWeek": "7",
+            "dailyCasesOneMonth": "6"
+        },
+        "DC": {
+            "name": "District of Columbia",
+            "totalDeathsOneWeek": "579",
+            "totalDeathsOneMonth": "592",
+            "dailyCasesCurrent": "14",
+            "dailyCasesOneWeek": "13",
+            "dailyCasesOneMonth": "13"
+        },
+        "FL": {
+            "name": "Florida",
+            "totalDeathsOneWeek": "5662",
+            "totalDeathsOneMonth": "10171",
+            "dailyCasesCurrent": "1667",
+            "dailyCasesOneWeek": "1784",
+            "dailyCasesOneMonth": "1849"
+        },
+        "GA": {
+            "name": "Georgia",
+            "totalDeathsOneWeek": "3409",
+            "totalDeathsOneMonth": "4655",
+            "dailyCasesCurrent": "543",
+            "dailyCasesOneWeek": "594",
+            "dailyCasesOneMonth": "714"
+        },
+        "HI": {
+            "name": "Hawaii",
+            "totalDeathsOneWeek": "23",
+            "totalDeathsOneMonth": "32",
+            "dailyCasesCurrent": "4",
+            "dailyCasesOneWeek": "5",
+            "dailyCasesOneMonth": "6"
+        },
+        "ID": {
+            "name": "Idaho",
+            "totalDeathsOneWeek": "160",
+            "totalDeathsOneMonth": "342",
+            "dailyCasesCurrent": "42",
+            "dailyCasesOneWeek": "49",
+            "dailyCasesOneMonth": "75"
+        },
+        "IL": {
+            "name": "Illinois",
+            "totalDeathsOneWeek": "7390",
+            "totalDeathsOneMonth": "7715",
+            "dailyCasesCurrent": "225",
+            "dailyCasesOneWeek": "225",
+            "dailyCasesOneMonth": "238"
+        },
+        "IN": {
+            "name": "Indiana",
+            "totalDeathsOneWeek": "2860",
+            "totalDeathsOneMonth": "3036",
+            "dailyCasesCurrent": "134",
+            "dailyCasesOneWeek": "142",
+            "dailyCasesOneMonth": "187"
+        },
+        "IA": {
+            "name": "Iowa",
+            "totalDeathsOneWeek": "830",
+            "totalDeathsOneMonth": "996",
+            "dailyCasesCurrent": "38",
+            "dailyCasesOneWeek": "41",
+            "dailyCasesOneMonth": "55"
+        },
+        "KS": {
+            "name": "Kansas",
+            "totalDeathsOneWeek": "352",
+            "totalDeathsOneMonth": "498",
+            "dailyCasesCurrent": "70",
+            "dailyCasesOneWeek": "78",
+            "dailyCasesOneMonth": "103"
+        },
+        "KY": {
+            "name": "Kentucky",
+            "totalDeathsOneWeek": "670",
+            "totalDeathsOneMonth": "786",
+            "dailyCasesCurrent": "90",
+            "dailyCasesOneWeek": "97",
+            "dailyCasesOneMonth": "125"
+        },
+        "LA": {
+            "name": "Louisiana",
+            "totalDeathsOneWeek": "3551",
+            "totalDeathsOneMonth": "4165",
+            "dailyCasesCurrent": "261",
+            "dailyCasesOneWeek": "281",
+            "dailyCasesOneMonth": "316"
+        },
+        "ME": {
+            "name": "Maine",
+            "totalDeathsOneWeek": "116",
+            "totalDeathsOneMonth": "121",
+            "dailyCasesCurrent": "2",
+            "dailyCasesOneWeek": "1",
+            "dailyCasesOneMonth": "1"
+        },
+        "MD": {
+            "name": "Maryland",
+            "totalDeathsOneWeek": "3405",
+            "totalDeathsOneMonth": "3531",
+            "dailyCasesCurrent": "73",
+            "dailyCasesOneWeek": "71",
+            "dailyCasesOneMonth": "71"
+        },
+        "MA": {
+            "name": "Massachusetts",
+            "totalDeathsOneWeek": "8336",
+            "totalDeathsOneMonth": "8432",
+            "dailyCasesCurrent": "75",
+            "dailyCasesOneWeek": "65",
+            "dailyCasesOneMonth": "50"
+        },
+        "MI": {
+            "name": "Michigan",
+            "totalDeathsOneWeek": "6370",
+            "totalDeathsOneMonth": "6558",
+            "dailyCasesCurrent": "118",
+            "dailyCasesOneWeek": "124",
+            "dailyCasesOneMonth": "145"
+        },
+        "MN": {
+            "name": "Minnesota",
+            "totalDeathsOneWeek": "1662",
+            "totalDeathsOneMonth": "1812",
+            "dailyCasesCurrent": "43",
+            "dailyCasesOneWeek": "44",
+            "dailyCasesOneMonth": "47"
+        },
+        "MS": {
+            "name": "Mississippi",
+            "totalDeathsOneWeek": "1460",
+            "totalDeathsOneMonth": "1871",
+            "dailyCasesCurrent": "189",
+            "dailyCasesOneWeek": "186",
+            "dailyCasesOneMonth": "153"
+        },
+        "MO": {
+            "name": "Missouri",
+            "totalDeathsOneWeek": "1199",
+            "totalDeathsOneMonth": "1414",
+            "dailyCasesCurrent": "152",
+            "dailyCasesOneWeek": "160",
+            "dailyCasesOneMonth": "186"
+        },
+        "MT": {
+            "name": "Montana",
+            "totalDeathsOneWeek": "34",
+            "totalDeathsOneMonth": "71",
+            "dailyCasesCurrent": "9",
+            "dailyCasesOneWeek": "11",
+            "dailyCasesOneMonth": "20"
+        },
+        "NE": {
+            "name": "Nebraska",
+            "totalDeathsOneWeek": "320",
+            "totalDeathsOneMonth": "367",
+            "dailyCasesCurrent": "19",
+            "dailyCasesOneWeek": "18",
+            "dailyCasesOneMonth": "17"
+        },
+        "NV": {
+            "name": "Nevada",
+            "totalDeathsOneWeek": "685",
+            "totalDeathsOneMonth": "1044",
+            "dailyCasesCurrent": "190",
+            "dailyCasesOneWeek": "214",
+            "dailyCasesOneMonth": "284"
+        },
+        "NH": {
+            "name": "New Hampshire",
+            "totalDeathsOneWeek": "415",
+            "totalDeathsOneMonth": "438",
+            "dailyCasesCurrent": "3",
+            "dailyCasesOneWeek": "2",
+            "dailyCasesOneMonth": "1"
+        },
+        "NJ": {
+            "name": "New Jersey",
+            "totalDeathsOneWeek": "15651",
+            "totalDeathsOneMonth": "16020",
+            "dailyCasesCurrent": "120",
+            "dailyCasesOneWeek": "109",
+            "dailyCasesOneMonth": "85"
+        },
+        "NM": {
+            "name": "New Mexico",
+            "totalDeathsOneWeek": "599",
+            "totalDeathsOneMonth": "691",
+            "dailyCasesCurrent": "27",
+            "dailyCasesOneWeek": "26",
+            "dailyCasesOneMonth": "26"
+        },
+        "NY": {
+            "name": "New York",
+            "totalDeathsOneWeek": "32369",
+            "totalDeathsOneMonth": "32578",
+            "dailyCasesCurrent": "115",
+            "dailyCasesOneWeek": "109",
+            "dailyCasesOneMonth": "98"
+        },
+        "NC": {
+            "name": "North Carolina",
+            "totalDeathsOneWeek": "1799",
+            "totalDeathsOneMonth": "2315",
+            "dailyCasesCurrent": "189",
+            "dailyCasesOneWeek": "191",
+            "dailyCasesOneMonth": "183"
+        },
+        "ND": {
+            "name": "North Dakota",
+            "totalDeathsOneWeek": "94",
+            "totalDeathsOneMonth": "117",
+            "dailyCasesCurrent": "8",
+            "dailyCasesOneWeek": "9",
+            "dailyCasesOneMonth": "14"
+        },
+        "OH": {
+            "name": "Ohio",
+            "totalDeathsOneWeek": "3343",
+            "totalDeathsOneMonth": "3840",
+            "dailyCasesCurrent": "176",
+            "dailyCasesOneWeek": "171",
+            "dailyCasesOneMonth": "161"
+        },
+        "OK": {
+            "name": "Oklahoma",
+            "totalDeathsOneWeek": "500",
+            "totalDeathsOneMonth": "700",
+            "dailyCasesCurrent": "98",
+            "dailyCasesOneWeek": "106",
+            "dailyCasesOneMonth": "129"
+        },
+        "OR": {
+            "name": "Oregon",
+            "totalDeathsOneWeek": "271",
+            "totalDeathsOneMonth": "365",
+            "dailyCasesCurrent": "42",
+            "dailyCasesOneWeek": "44",
+            "dailyCasesOneMonth": "46"
+        },
+        "PA": {
+            "name": "Pennsylvania",
+            "totalDeathsOneWeek": "7125",
+            "totalDeathsOneMonth": "7455",
+            "dailyCasesCurrent": "114",
+            "dailyCasesOneWeek": "108",
+            "dailyCasesOneMonth": "105"
+        },
+        "PR": {
+            "name": "Puerto Rico",
+            "totalDeathsOneWeek": "195",
+            "totalDeathsOneMonth": "245",
+            "dailyCasesCurrent": "54",
+            "dailyCasesOneWeek": "57",
+            "dailyCasesOneMonth": "64"
+        },
+        "RI": {
+            "name": "Rhode Island",
+            "totalDeathsOneWeek": "1017",
+            "totalDeathsOneMonth": "1063",
+            "dailyCasesCurrent": "10",
+            "dailyCasesOneWeek": "10",
+            "dailyCasesOneMonth": "9"
+        },
+        "SC": {
+            "name": "South Carolina",
+            "totalDeathsOneWeek": "1128",
+            "totalDeathsOneMonth": "1764",
+            "dailyCasesCurrent": "278",
+            "dailyCasesOneWeek": "293",
+            "dailyCasesOneMonth": "306"
+        },
+        "SD": {
+            "name": "South Dakota",
+            "totalDeathsOneWeek": "109",
+            "totalDeathsOneMonth": "125",
+            "dailyCasesCurrent": "10",
+            "dailyCasesOneWeek": "10",
+            "dailyCasesOneMonth": "9"
+        },
+        "TN": {
+            "name": "Tennessee",
+            "totalDeathsOneWeek": "947",
+            "totalDeathsOneMonth": "1539",
+            "dailyCasesCurrent": "235",
+            "dailyCasesOneWeek": "253",
+            "dailyCasesOneMonth": "288"
+        },
+        "TX": {
+            "name": "Texas",
+            "totalDeathsOneWeek": "4247",
+            "totalDeathsOneMonth": "7423",
+            "dailyCasesCurrent": "1881",
+            "dailyCasesOneWeek": "2020",
+            "dailyCasesOneMonth": "2231"
+        },
+        "UT": {
+            "name": "Utah",
+            "totalDeathsOneWeek": "326",
+            "totalDeathsOneMonth": "487",
+            "dailyCasesCurrent": "50",
+            "dailyCasesOneWeek": "49",
+            "dailyCasesOneMonth": "42"
+        },
+        "VT": {
+            "name": "Vermont",
+            "totalDeathsOneWeek": "58",
+            "totalDeathsOneMonth": "60",
+            "dailyCasesCurrent": "4",
+            "dailyCasesOneWeek": "3",
+            "dailyCasesOneMonth": "1"
+        },
+        "VA": {
+            "name": "Virginia",
+            "totalDeathsOneWeek": "2048",
+            "totalDeathsOneMonth": "2246",
+            "dailyCasesCurrent": "201",
+            "dailyCasesOneWeek": "207",
+            "dailyCasesOneMonth": "245"
+        },
+        "WA": {
+            "name": "Washington",
+            "totalDeathsOneWeek": "1496",
+            "totalDeathsOneMonth": "1721",
+            "dailyCasesCurrent": "63",
+            "dailyCasesOneWeek": "66",
+            "dailyCasesOneMonth": "72"
+        },
+        "WV": {
+            "name": "West Virginia",
+            "totalDeathsOneWeek": "109",
+            "totalDeathsOneMonth": "151",
+            "dailyCasesCurrent": "14",
+            "dailyCasesOneWeek": "17",
+            "dailyCasesOneMonth": "29"
+        },
+        "WI": {
+            "name": "Wisconsin",
+            "totalDeathsOneWeek": "922",
+            "totalDeathsOneMonth": "1144",
+            "dailyCasesCurrent": "59",
+            "dailyCasesOneWeek": "64",
+            "dailyCasesOneMonth": "75"
+        },
+        "WY": {
+            "name": "Wyoming",
+            "totalDeathsOneWeek": "27",
+            "totalDeathsOneMonth": "38",
+            "dailyCasesCurrent": "3",
+            "dailyCasesOneWeek": "4",
+            "dailyCasesOneMonth": "5"
+        }
+    },
+    "national": {
+        "name": "National",
+        "totalDeathsOneWeek": "142100",
+        "totalDeathsOneMonth": "162110",
+        "dailyCasesCurrent": "10032",
+        "dailyCasesOneWeek": "10696",
+        "dailyCasesOneMonth": "12153"
+    },
+    "maximums": {
+        "totalDeathsOneWeek": "947",
+        "totalDeathsOneMonth": "996",
+        "dailyCasesCurrent": "98",
+        "dailyCasesOneWeek": "97",
+        "dailyCasesOneMonth": "98"
+    }
+}
