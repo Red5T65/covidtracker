@@ -30,33 +30,16 @@ function parseCSV(filePath, onData) {
 
 async function parseData() {
     const states = {};
-    const maximums = {
-        totalDeathsOneWeek: 0,
-        totalDeathsOneMonth: 0,
-        dailyCasesCurrent: 0,
-        dailyCasesOneWeek: 0,
-        dailyCasesOneMonth: 0,
-    };
 
-    function updateValue(state, key, value) {
-        state[key] = value;
-        if (value > maximums[key]) {
-            maximums[key] = value;
-        }
+    for (let name of Object.keys(stateIDs)) {
+        const stateID = stateIDs[name];
+        states[stateID] = {
+            stateID, name
+        };
     }
 
-    function getState(name) {
-        if (!(name in stateIDs)) {
-            throw new Error(`name not in stateIDs: "${name}"`);
-        }
-
+    function getStateByName(name) {
         const stateID = stateIDs[name];
-        if (!(stateID in states)) {
-            states[stateID] = {
-                name: name,
-            };
-        }
-
         return states[stateID];
     }
 
@@ -72,14 +55,14 @@ async function parseData() {
             return;
         }
 
-        const state = getState(location_name);
+        const state = getStateByName(location_name);
 
         if (target == '1 wk ahead cum death') {
-            updateValue(state, 'totalDeathsOneWeek', point);
+            state.totalDeathsOneWeek = point;
         }
 
         if (target == '4 wk ahead cum death') {
-            updateValue(state, 'totalDeathsOneMonth', point);
+            state.totalDeathsOneMonth = point;
         }
     });
 
@@ -95,28 +78,40 @@ async function parseData() {
             return;
         }
 
-        const state = getState(location_name);
+        const state = getStateByName(location_name);
 
         if (target == '1 day ahead inc hosp') {
-            updateValue(state, 'dailyCasesCurrent', point);
+            state.dailyCasesCurrent = point;
         }
 
         if (target == '7 day ahead inc hosp') {
-            updateValue(state, 'dailyCasesOneWeek', point);
+            state.dailyCasesOneWeek = point;
         }
 
         if (target == '30 day ahead inc hosp') {
-            updateValue(state, 'dailyCasesOneMonth', point);
+            state.dailyCasesOneMonth = point;
         }
     });
 
+    const popsStreamEnd = parseCSV('population-2019.csv', function(chunk) {
+        const {
+            name,
+            population
+        } = chunk;
+
+        const state = getStateByName(name);
+        state.population = population;
+    });
+
+
     await deathsStreamEnd;
     await hospStreamEnd;
+    await popsStreamEnd;
 
     const { national } = states;
     delete states.national;
 
-    return { states, national, maximums };
+    return { states, national };
 }
 
 parseData().then(function(data) {

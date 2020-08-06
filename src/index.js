@@ -23,6 +23,27 @@ const categories = {
     },
 };
 
+for (let key of Object.keys(categories)) {
+    const category = categories[key];
+    category.maxValue = 0;
+    category.maxPerCapita = 0;
+
+    for (let stateID of Object.keys(USA.states)) {
+        const state = USA.states[stateID];
+        const { population } = state;
+        const value = state[key];
+        const perCapita = value / population;
+
+        if (value > category.maxValue) {
+            category.maxValue = value;
+        }
+
+        if (perCapita > category.maxPerCapita) {
+            category.maxPerCapita = perCapita;
+        }
+    }
+}
+
 
 function CategorySelect(props) {
     const { categoryKey, onChange } = props;
@@ -77,20 +98,25 @@ class CountryMap extends React.Component {
 
     componentDidUpdate() {
         const { categoryKey } = this.state;
-        const svg = this.svgRef.current.contentDocument;
+        const {
+            maxValue,
+            maxPerCapita,
+        } = categories[categoryKey];
 
-        const maxValue = USA.maximums[categoryKey];
+        const svg = this.svgRef.current.contentDocument;
 
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
+            const { population } = state;
             const value = state[categoryKey];
+            const perCapita = value / population;
 
             const elem = svg.getElementById(stateID);
             if (elem === null) {
                 throw new Error(`no element with this ID ${stateID}`);
             }
 
-            const percent = 100 * value / maxValue;
+            const percent = 100 * perCapita / maxPerCapita;
             const fill = `hsl(0, ${percent}%, 50%)`;
             console.log(stateID, fill);
             elem.style.fill = fill;
