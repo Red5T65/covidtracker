@@ -46,7 +46,12 @@ for (let key of Object.keys(categories)) {
 
 
 function CategorySelect(props) {
-    const { categoryKey, onChange } = props;
+    const {
+        categoryKey,
+        perCapita,
+        onChangeCategory,
+        onChangePerCapita
+    } = props;
 
     const radios = Object.keys(categories).map(function(key) {
         const { label } = categories[key];
@@ -56,13 +61,22 @@ function CategorySelect(props) {
                 name="category"
                 value={key}
                 checked={categoryKey === key}
-                onChange={onChange}
+                onChange={onChangeCategory}
             /> {label}
         </label>;
     });
 
     return <div className={classes.categorySelect}>
         {radios}
+        <label>
+            <input
+                type="checkbox"
+                name="perCapita"
+                value="perCapita"
+                checked={perCapita}
+                onChange={onChangePerCapita}
+            /> Per Capita
+        </label>
     </div>;
 }
 
@@ -70,21 +84,25 @@ class CountryMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            categoryKey: null,
+            categoryKey: "dailyCasesCurrent",
+            perCapita: true,
         };
 
         this.onChangeCategory = this.onChangeCategory.bind(this);
+        this.onChangePerCapita = this.onChangePerCapita.bind(this);
         this.svgRef = React.createRef();
     }
 
     render() {
-        const { categoryKey } = this.state;
-        const { onChangeCategory, svgRef } = this;
+        const { categoryKey, perCapita } = this.state;
+        const { onChangeCategory, onChangePerCapita, svgRef } = this;
 
         return <div>
             <CategorySelect
                 categoryKey={categoryKey}
-                onChange={onChangeCategory}
+                perCapita={perCapita}
+                onChangeCategory={onChangeCategory}
+                onChangePerCapita={onChangePerCapita}
             />
             <object type="image/svg+xml" data={USAMap} ref={svgRef} />
         </div>;
@@ -96,29 +114,56 @@ class CountryMap extends React.Component {
         });
     }
 
+    onChangePerCapita(event) {
+        this.setState({
+            perCapita: event.target.checked
+        });
+    }
+
+    componentDidMount() {
+        this.updateSVG();
+    }
+
     componentDidUpdate() {
-        const { categoryKey } = this.state;
+        this.updateSVG();
+    }
+
+    async getSVG() {
+        const svgElem = this.svgRef.current;
+        const svg = svgElem.contentDocument;
+        if (svg !== null) {
+            return svg;
+        }
+
+        await new Promise(function(resolve) {
+            svgElem.onload = resolve;
+        });
+        return svgElem.contentDocument;
+    }
+
+    async updateSVG() {
+        const { categoryKey, perCapita } = this.state;
         const {
             maxValue,
             maxPerCapita,
         } = categories[categoryKey];
 
-        const svg = this.svgRef.current.contentDocument;
-
+        const svg = await this.getSVG();
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
             const value = state[categoryKey];
-            const perCapita = value / population;
+            const valuePerCapita = value / population;
 
             const elem = svg.getElementById(stateID);
             if (elem === null) {
                 throw new Error(`no element with this ID ${stateID}`);
             }
 
-            const percent = 100 * perCapita / maxPerCapita;
-            const fill = `hsl(0, ${percent}%, 50%)`;
-            console.log(stateID, fill);
+            const fraction = perCapita
+                ? (valuePerCapita / maxPerCapita)
+                : (value / maxValue);
+            const fill = `hsl(0, ${fraction * 100}%, 50%)`;
             elem.style.fill = fill;
         }
     }
