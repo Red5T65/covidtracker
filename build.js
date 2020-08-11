@@ -1,12 +1,32 @@
 #!/usr/bin/env node
 
-const action = process.argv[2];
+'use strict';
 
+const path = require('path');
 const webpack = require('webpack');
-const webpackConfig = require('./webpackConfig');
 const ProgressPlugin = require('webpack/lib/ProgressPlugin');
 const ProgressBar = require('progress');
 
+const action = process.argv[2];
+const port = process.argv[3] || 10102;
+
+const webpackCompiler = webpack(function getWebpackConfig(act) {
+    switch (act) {
+        case 'production':
+            return require('./webpack.config.production.js');
+        case 'live':
+            return require('./webpack.config.live.js');
+        default:
+            throw new Error(`Unknown action "${act}"`);
+    }
+}(action));
+
+/**
+ * Callback for when the webpack build completes.
+ *
+ * @param {Object?} err - The build error, if any.
+ * @param {Object?} stats - The build statistics, upon success.
+ */
 function webpackBuildFinished(err, stats) {
     if (err) {
         console.log('\n\n===== WEBPACK BUILD FAILED =====');
@@ -16,8 +36,6 @@ function webpackBuildFinished(err, stats) {
     console.log('\n\n===== WEBPACK BUILD FINISHED =====');
     console.log(stats.toString({ colors: true, timings: true, cached: false }));
 }
-
-const webpackCompiler = webpack(webpackConfig);
 
 const webpackProgress = new ProgressBar(
     '[:bar] :percent eta :etas  :msg', {
@@ -30,14 +48,23 @@ new ProgressPlugin(function(percent, msg) {
 }).apply(webpackCompiler);
 
 switch (action) {
-    case 'watch':
-        webpackCompiler.watch({}, webpackBuildFinished);
+    case 'live': {
+        const webpackDevServer = require('webpack-dev-server');
+        const server = new webpackDevServer(webpackCompiler, {
+            contentBase: [
+                path.join(__dirname, 'dist')
+            ],
+            hot: true,
+            injectHot: true,
+            injectClient: true,
+            compress: true,
+            historyApiFallback: true,
+            stats: { colors: true, timings: true, cached: false }
+        });
+        server.listen(port, 'localhost');
         return;
-    case 'dist':
-        webpackCompiler.run(webpackBuildFinished);
-        return;
+    }
     default:
-        console.log(`Error: unknown action "${action}"`);
-        process.exit(1);
+        webpackCompiler.run(webpackBuildFinished);
 }
 

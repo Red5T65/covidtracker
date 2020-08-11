@@ -1,0 +1,25 @@
+{
+    "plugins": [
+        "react"
+    ],
+    "extends": ["plugin:react/recommended"],
+    "parser": "babel-eslint",
+    "env": {
+        "node": false,
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "globals": {
+        "__webpack_public_path__": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "rules": {
+        "react/prop-types": "off"
+    }
+}
+

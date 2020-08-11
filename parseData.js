@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const csvParse = require('csv-parse');
 const fs = require('fs');
 
@@ -51,17 +53,17 @@ async function parseData() {
             point
         } = chunk;
 
-        if (model != 'Covid19Sim') {
+        if (model !== 'Covid19Sim') {
             return;
         }
 
         const state = getStateByName(location_name);
 
-        if (target == '1 wk ahead cum death') {
+        if (target === '1 wk ahead cum death') {
             state.totalDeathsOneWeek = point;
         }
 
-        if (target == '4 wk ahead cum death') {
+        if (target === '4 wk ahead cum death') {
             state.totalDeathsOneMonth = point;
         }
     });
@@ -74,21 +76,21 @@ async function parseData() {
             point
         } = chunk;
 
-        if (model != 'Covid19Sim') {
+        if (model !== 'Covid19Sim') {
             return;
         }
 
         const state = getStateByName(location_name);
 
-        if (target == '1 day ahead inc hosp') {
+        if (target === '1 day ahead inc hosp') {
             state.dailyCasesCurrent = point;
         }
 
-        if (target == '7 day ahead inc hosp') {
+        if (target === '7 day ahead inc hosp') {
             state.dailyCasesOneWeek = point;
         }
 
-        if (target == '30 day ahead inc hosp') {
+        if (target === '30 day ahead inc hosp') {
             state.dailyCasesOneMonth = point;
         }
     });
