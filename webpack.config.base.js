@@ -14,6 +14,11 @@ const config = {
     mode: 'development',
     devtool: 'cheap-module-source-map',
     context: ctxDir,
+    resolve: {
+        alias: {
+            src: srcDir
+        }
+    },
     entry: {
         main: ['normalize.css', srcDir],
         react: ['react', 'react-dom']

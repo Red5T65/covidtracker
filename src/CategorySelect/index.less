@@ -1,5 +1,36 @@
+@import '~src/definitions';
+
 .categorySelect {
     display: flex;
     flex-flow: column;
-}
 
+    > .buttonGroup {
+        display: flex;
+
+        > label {
+            flex: 1;
+            text-align: center;
+
+            border: solid (@spacing / 4) black;
+            border-radius: @spacing;
+            padding: @spacing;
+            margin: @spacing / 2;
+
+            > input {
+                display: none;
+            }
+
+            &.checked {
+                background-color: cyan;
+            }
+        }
+    }
+
+    > .perCapita {
+        > label {
+            &.checked {
+                background-color: lime;
+            }
+        }
+    }
+}

@@ -1,0 +1,25 @@
+@import '~src/definitions';
+
+.Legend {
+    display: flex;
+    flex-flow: column;
+
+    flex: 1;
+    text-align: center;
+
+    border: solid (@spacing / 4) black;
+    border-radius: @spacing;
+    padding: @spacing;
+    margin: @spacing;
+
+    > .gradient {
+        height: @spacing * 4;
+        background: linear-gradient(0.25turn, gray, red);
+    }
+
+    > .values {
+        display: flex;
+
+        justify-content: space-between;
+    }
+}

@@ -1,54 +1,53 @@
 import React from 'react';
 
-import CategorySelect from '../CategorySelect';
+import CategorySelect from 'src/CategorySelect';
+import Legend from 'src/Legend';
 
-import USAMap from '../USA.svg';
-import USA from '../USA.json';
+import USAMap from 'src/USA.svg';
+import USA from 'src/USA.json';
 
-const categories = {
-    totalDeathsOneWeek: {
-        label: 'Cumulative Deaths Next Week'
-    },
-    totalDeathsOneMonth: {
-        label: 'Cumulative Deaths Next Month'
-    },
-    dailyCasesCurrent: {
-        label: 'Daily Cases Today'
-    },
-    dailyCasesOneWeek: {
-        label: 'Daily Cases Next Week'
-    },
-    dailyCasesOneMonth: {
-        label: 'Daily Cases Next Month'
-    }
-};
+import classes from './index.less';
 
-for (let key of Object.keys(categories)) {
-    const category = categories[key];
-    category.maxValue = 0;
-    category.maxPerCapita = 0;
+const dataPoints = [{
+    label: 'Cumulative Deaths',
+    maxValue: 1000,
+    maxPerCapita: 200 / 100000,
+    analysis: <p>
+        Insert Text Here1
+    </p>,
+    times: [{
+        key: 'totalDeathsOneWeek',
+        label: 'One Week'
+    }, {
+        key: 'totalDeathsOneMonth',
+        label: 'One Month'
+    }]
+}, {
+    label: 'Daily Cases',
+    maxValue: 1000,
+    maxPerCapita: 10 / 100000,
+    analysis: <p>
+        Insert Text Here2
+    </p>,
+    times: [{
+        key: 'dailyCasesCurrent',
+        label: 'Today'
+    }, {
+        key: 'dailyCasesOneWeek',
+        label: 'One Week'
+    }, {
+        key: 'dailyCasesOneMonth',
+        label: 'One Month'
+    }]
+}];
 
-    for (let stateID of Object.keys(USA.states)) {
-        const state = USA.states[stateID];
-        const { population } = state;
-        const value = state[key];
-        const perCapita = value / population;
-
-        if (value > category.maxValue) {
-            category.maxValue = value;
-        }
-
-        if (perCapita > category.maxPerCapita) {
-            category.maxPerCapita = perCapita;
-        }
-    }
-}
 
 class CountryMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            categoryKey: 'dailyCasesCurrent',
+            dataPointIndex: 0,
+            timeIndex: 0,
             perCapita: true
         };
 
@@ -58,31 +57,46 @@ class CountryMap extends React.Component {
     }
 
     render() {
-        const { categoryKey, perCapita } = this.state;
+        const { dataPointIndex, timeIndex, perCapita } = this.state;
         const { onChangeCategory, onChangePerCapita, svgRef } = this;
 
-        return <div>
+        const {
+            label,
+            analysis,
+            maxValue,
+            maxPerCapita
+        } = dataPoints[dataPointIndex];
+
+        return <div className={classes.map}>
             <CategorySelect
-                categories={categories}
-                categoryKey={categoryKey}
+                dataPoints={dataPoints}
+                dataPointIndex={dataPointIndex}
+                timeIndex={timeIndex}
                 perCapita={perCapita}
                 onChangeCategory={onChangeCategory}
                 onChangePerCapita={onChangePerCapita}
             />
-            <object type="image/svg+xml" data={USAMap} ref={svgRef} />
+            <object
+                type="image/svg+xml"
+                data={USAMap}
+                ref={svgRef}
+            />
+            <Legend
+                label={label}
+                perCapita={perCapita}
+                maxValue={maxValue}
+                maxPerCapita={maxPerCapita}
+            />
+            {analysis}
         </div>;
     }
 
-    onChangeCategory(event) {
-        this.setState({
-            categoryKey: event.target.value
-        });
+    onChangeCategory(dataPointIndex, timeIndex) {
+        this.setState({ dataPointIndex, timeIndex });
     }
 
-    onChangePerCapita(event) {
-        this.setState({
-            perCapita: event.target.checked
-        });
+    onChangePerCapita(perCapita) {
+        this.setState({ perCapita });
     }
 
     async componentDidMount() {
@@ -105,18 +119,17 @@ class CountryMap extends React.Component {
         });
     }
 
-    async updateSVG() {
-        const { categoryKey, perCapita } = this.state;
-        const {
-            maxValue,
-            maxPerCapita
-        } = categories[categoryKey];
+    updateSVG() {
+        const { dataPointIndex, timeIndex, perCapita } = this.state;
+        const dataPoint = dataPoints[dataPointIndex];
+        const { maxValue, maxPerCapita, times } = dataPoint;
+        const { key } = times[timeIndex];
 
         const svg = this.svgRef.current.contentDocument;
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
-            const value = state[categoryKey];
+            const value = state[key];
             const valuePerCapita = value / population;
 
             const elem = svg.getElementById(stateID);
