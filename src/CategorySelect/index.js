@@ -7,7 +7,7 @@ export default function CategorySelect(props) {
     const {
         dataPoints,
         dataPointIndex,
-        timeIndex,
+        vacDataIndex,
         perCapita,
         onChangeCategory,
         onChangePerCapita
@@ -15,17 +15,17 @@ export default function CategorySelect(props) {
 
     function inputChangeDataPoint(event) {
         const nextDataPointIndex = Number.parseInt(event.target.value, 10);
-        let nextTimeIndex = timeIndex;
-        if (nextTimeIndex >= dataPoints[nextDataPointIndex].times.length) {
-            nextTimeIndex = 0;
+        let nextVacDataIndex = vacDataIndex;
+        if (nextVacDataIndex >= dataPoints[nextDataPointIndex].times.length) {
+            nextVacDataIndex = 0;
         }
 
-        return onChangeCategory(nextDataPointIndex, nextTimeIndex);
+        return onChangeCategory(nextDataPointIndex, nextVacDataIndex);
     }
 
-    function inputChangeTime(event) {
-        const nextTimeIndex = Number.parseInt(event.target.value, 10);
-        return onChangeCategory(dataPointIndex, nextTimeIndex);
+    function inputChangeVacData(event) {
+        const nextVacDataIndex = Number.parseInt(event.target.value, 10);
+        return onChangeCategory(dataPointIndex, nextVacDataIndex);
     }
 
     function inputChangePerCapita(event) {
@@ -53,26 +53,26 @@ export default function CategorySelect(props) {
         </label>;
     });
 
-    const timeRadios = dataPoints[dataPointIndex].times.map(function(time, i) {
-        const checked = timeIndex === i;
-        const labelClasses = classNames({
-            [classes.checked]: checked
+    const vacDataRadios =
+        dataPoints[dataPointIndex].vacData.map(function(vacData, i) {
+            const checked = vacDataIndex === i;
+            const labelClasses = classNames({
+                [classes.checked]: checked
+            });
+            return <label
+                key={vacData.key}
+                className={labelClasses}
+            >
+                <input
+                    type="radio"
+                    name="vacData"
+                    value={i}
+                    checked={checked}
+                    onChange={inputChangeVacData}
+                />
+                {vacData.label}
+            </label>;
         });
-
-        return <label
-            key={time.key}
-            className={labelClasses}
-        >
-            <input
-                type="radio"
-                name="time"
-                value={i}
-                checked={checked}
-                onChange={inputChangeTime}
-            />
-            {time.label}
-        </label>;
-    });
 
     const perCapitaCheck = (function() {
         const labelClasses = classNames({
@@ -96,7 +96,7 @@ export default function CategorySelect(props) {
             {dataPointRadios}
         </div>
         <div className={classes.buttonGroup}>
-            {timeRadios}
+            {vacDataRadios}
         </div>
         <div className={classNames(classes.perCapita, classes.buttonGroup)}>
             {perCapitaCheck}

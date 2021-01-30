@@ -5,25 +5,38 @@ export default function Legend(props) {
     const {
         label,
         perCapita,
-        maxValue,
-        maxPerCapita
+        colors
     } = props;
 
-    const divisions = 5;
-    const markers = [];
+    const divisions = 4;
+    const perCapitaMarkers = ['<850', '850-4250', '4250-8500', '8500+'];
+    const markers = ['<143,000', '143,000-716,000', '716,000-1.43M', '1.43M+'];
+    const colordivs = [];
 
-    for (let i = 0; i <= divisions; i++) {
-        const marker = (i / divisions) *
-            (perCapita ? (maxPerCapita * 100000) : maxValue);
-        markers.push(<span>{Math.round(marker)}</span>);
+    for (let i = 0; i < divisions; i++) {
+        const color = colors[i];
+        if (perCapita === true) {
+            colordivs.push(<span style={{
+                backgroundColor: `${color}`,
+                width: 191,
+                color: '#ffffff',
+                fontSize: 20
+            }}>{perCapitaMarkers[i]}</span>);
+        } else {
+            colordivs.push(<span style={{
+                backgroundColor: `${color}`,
+                width: 191,
+                color: '#ffffff',
+                fontSize: 20
+            }}>{markers[i]}</span>);
+        }
     }
 
     return <div className={classes.Legend}>
-        Legend
-        <div className={classes.gradient} />
-        <div className={classes.values}>
-            {markers}
+        {label} {perCapita ? 'Per 100,000 People' : null}
+        <div className={classes.colordivs}>
+            {colordivs}
         </div>
-        {label} {perCapita ? 'Per 100,000' : null}
+        Data obtained from CDC COVID-19 Database
     </div>;
 }

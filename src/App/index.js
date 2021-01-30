@@ -8,46 +8,27 @@ import USA from 'src/USA.json';
 
 import classes from './index.less';
 
+const colors = ['#e60000', '#ff369e', '#ffa600', '#2679ff'];
+
 const dataPoints = [{
-    label: 'Cumulative Deaths',
-    maxValue: 1000,
-    maxPerCapita: 200 / 100000,
-    analysis: <p>
-        Insert Text Here1
-    </p>,
-    times: [{
-        key: 'totalDeathsOneWeek',
-        label: 'One Week'
+    label: 'COVID-19 Vaccination Data',
+    vacData: [{
+        key: 'totalDist',
+        label: 'Total Distributed',
+        max: 5640225
     }, {
-        key: 'totalDeathsOneMonth',
-        label: 'One Month'
-    }]
-}, {
-    label: 'Daily Cases',
-    maxValue: 1000,
-    maxPerCapita: 10 / 100000,
-    analysis: <p>
-        Insert Text Here2
-    </p>,
-    times: [{
-        key: 'dailyCasesCurrent',
-        label: 'Today'
-    }, {
-        key: 'dailyCasesOneWeek',
-        label: 'One Week'
-    }, {
-        key: 'dailyCasesOneMonth',
-        label: 'One Month'
+        key: 'totalAdmin',
+        label: 'Total Administered',
+        max: 2910562
     }]
 }];
-
 
 class CountryMap extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             dataPointIndex: 0,
-            timeIndex: 0,
+            vacDataIndex: 0,
             perCapita: true
         };
 
@@ -57,21 +38,18 @@ class CountryMap extends React.Component {
     }
 
     render() {
-        const { dataPointIndex, timeIndex, perCapita } = this.state;
+        const { dataPointIndex, vacDataIndex, perCapita } = this.state;
         const { onChangeCategory, onChangePerCapita, svgRef } = this;
 
         const {
-            label,
-            analysis,
-            maxValue,
-            maxPerCapita
+            label
         } = dataPoints[dataPointIndex];
 
         return <div className={classes.map}>
             <CategorySelect
                 dataPoints={dataPoints}
                 dataPointIndex={dataPointIndex}
-                timeIndex={timeIndex}
+                vacDataIndex={vacDataIndex}
                 perCapita={perCapita}
                 onChangeCategory={onChangeCategory}
                 onChangePerCapita={onChangePerCapita}
@@ -84,15 +62,13 @@ class CountryMap extends React.Component {
             <Legend
                 label={label}
                 perCapita={perCapita}
-                maxValue={maxValue}
-                maxPerCapita={maxPerCapita}
+                colors={colors}
             />
-            {analysis}
         </div>;
     }
 
-    onChangeCategory(dataPointIndex, timeIndex) {
-        this.setState({ dataPointIndex, timeIndex });
+    onChangeCategory(dataPointIndex, vacDataIndex) {
+        this.setState({ dataPointIndex, vacDataIndex });
     }
 
     onChangePerCapita(perCapita) {
@@ -120,28 +96,43 @@ class CountryMap extends React.Component {
     }
 
     updateSVG() {
-        const { dataPointIndex, timeIndex, perCapita } = this.state;
+        const { dataPointIndex, vacDataIndex, perCapita } = this.state;
         const dataPoint = dataPoints[dataPointIndex];
-        const { maxValue, maxPerCapita, times } = dataPoint;
-        const { key } = times[timeIndex];
+        const { vacData } = dataPoint;
+        const { key, max } = vacData[vacDataIndex];
 
         const svg = this.svgRef.current.contentDocument;
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
-            const value = state[key];
-            const valuePerCapita = value / population;
+            let value = state[key];
+            if (key === 'totalDist') {
+                value = value / 2;
+            }
+            const valuePerCapita = value / (population / 100000);
+            const maxPerCapita = max / (population / 1000000);
 
             const elem = svg.getElementById(stateID);
             if (elem === null) {
                 throw new Error(`SVG element with ID "${stateID}" not found`);
             }
 
-            const percent = perCapita
-                ? (valuePerCapita / maxPerCapita)
-                : (value / maxValue);
-            const fill = `hsl(0, ${percent * 100}%, 50%)`;
-            elem.style.fill = fill;
+            const colorval = perCapita
+                ? (valuePerCapita / maxPerCapita) * 100
+                : (value / max) * 100;
+            if (colorval < 5) {
+                const fill = `${colors[0]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 25) {
+                const fill = `${colors[1]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 50) {
+                const fill = `${colors[2]}`;
+                elem.style.fill = fill;
+            } else {
+                const fill = `${colors[3]}`;
+                elem.style.fill = fill;
+            }
         }
     }
 }

@@ -5,6 +5,7 @@
     flex-flow: column;
 
     flex: 1;
+    justify-context: center;
     text-align: center;
 
     border: solid (@spacing / 4) black;
@@ -12,9 +13,12 @@
     padding: @spacing;
     margin: @spacing;
 
-    > .gradient {
+    > .colordivs {
+        display: flex;
+
         height: @spacing * 4;
-        background: linear-gradient(0.25turn, gray, red);
+
+        justify-content: space-between;
     }
 
     > .values {

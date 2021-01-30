@@ -45,55 +45,23 @@ async function parseData() {
         return states[stateID];
     }
 
-    const deathsStreamEnd = parseCSV('2020-07-20-death.csv', function(chunk) {
-        const {
-            model,
-            target,
-            location_name,
-            point
-        } = chunk;
+    const statesStreamEnd = parseCSV(
+        '2021-01-30covidvac.csv',
+        function(chunk) {
+            const {
+                territory,
+                totalDist,
+                totalAdmin
+            } = chunk;
 
-        if (model !== 'Covid19Sim') {
-            return;
-        }
+            const state = getStateByName(territory);
+            if (!state) {
+                return;
+            }
 
-        const state = getStateByName(location_name);
-
-        if (target === '1 wk ahead cum death') {
-            state.totalDeathsOneWeek = point;
-        }
-
-        if (target === '4 wk ahead cum death') {
-            state.totalDeathsOneMonth = point;
-        }
-    });
-
-    const hospStreamEnd = parseCSV('2020-07-20-hosp.csv', function(chunk) {
-        const {
-            model,
-            target,
-            location_name,
-            point
-        } = chunk;
-
-        if (model !== 'Covid19Sim') {
-            return;
-        }
-
-        const state = getStateByName(location_name);
-
-        if (target === '1 day ahead inc hosp') {
-            state.dailyCasesCurrent = point;
-        }
-
-        if (target === '7 day ahead inc hosp') {
-            state.dailyCasesOneWeek = point;
-        }
-
-        if (target === '30 day ahead inc hosp') {
-            state.dailyCasesOneMonth = point;
-        }
-    });
+            state.totalDist = totalDist;
+            state.totalAdmin = totalAdmin;
+        });
 
     const popsStreamEnd = parseCSV('population-2019.csv', function(chunk) {
         const {
@@ -106,8 +74,7 @@ async function parseData() {
     });
 
 
-    await deathsStreamEnd;
-    await hospStreamEnd;
+    await statesStreamEnd;
     await popsStreamEnd;
 
     const { national } = states;
