@@ -8,18 +8,16 @@ import USA from 'src/USA.json';
 
 import classes from './index.less';
 
-const colors = ['#e60000', '#ff369e', '#ffa600', '#2679ff'];
+const colors = ['#e60000', '#ff369e', '#0095ff', '#2679ff'];
 
 const dataPoints = [{
-    label: 'COVID-19 Vaccination Data',
+    label: 'COVID-19 Vaccination Status as of 2021-30-01',
     vacData: [{
         key: 'totalDist',
-        label: 'Total Distributed',
-        max: 5640225
+        label: 'Total Distributed'
     }, {
         key: 'totalAdmin',
-        label: 'Total Administered',
-        max: 2910562
+        label: 'Total Administered'
     }]
 }];
 
@@ -99,7 +97,7 @@ class CountryMap extends React.Component {
         const { dataPointIndex, vacDataIndex, perCapita } = this.state;
         const dataPoint = dataPoints[dataPointIndex];
         const { vacData } = dataPoint;
-        const { key, max } = vacData[vacDataIndex];
+        const { key } = vacData[vacDataIndex];
 
         const svg = this.svgRef.current.contentDocument;
         for (let stateID of Object.keys(USA.states)) {
@@ -110,7 +108,6 @@ class CountryMap extends React.Component {
                 value = value / 2;
             }
             const valuePerCapita = value / (population / 100000);
-            const maxPerCapita = max / (population / 1000000);
 
             const elem = svg.getElementById(stateID);
             if (elem === null) {
@@ -118,15 +115,29 @@ class CountryMap extends React.Component {
             }
 
             const colorval = perCapita
-                ? (valuePerCapita / maxPerCapita) * 100
-                : (value / max) * 100;
-            if (colorval < 5) {
+                ? valuePerCapita
+                : value;
+            if (perCapita === true) {
+                if (colorval < 200000) {
+                    const fill = `${colors[0]}`;
+                    elem.style.fill = fill;
+                } else if (colorval <= 500000) {
+                    const fill = `${colors[1]}`;
+                    elem.style.fill = fill;
+                } else if (colorval <= 1000000) {
+                    const fill = `${colors[2]}`;
+                    elem.style.fill = fill;
+                } else {
+                    const fill = `${colors[3]}`;
+                    elem.style.fill = fill;
+                }
+            } else if (colorval < 8000) {
                 const fill = `${colors[0]}`;
                 elem.style.fill = fill;
-            } else if (colorval <= 25) {
+            } else if (colorval <= 9000) {
                 const fill = `${colors[1]}`;
                 elem.style.fill = fill;
-            } else if (colorval <= 50) {
+            } else if (colorval <= 10000) {
                 const fill = `${colors[2]}`;
                 elem.style.fill = fill;
             } else {

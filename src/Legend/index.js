@@ -9,8 +9,8 @@ export default function Legend(props) {
     } = props;
 
     const divisions = 4;
-    const perCapitaMarkers = ['<850', '850-4250', '4250-8500', '8500+'];
-    const markers = ['<143,000', '143,000-716,000', '716,000-1.43M', '1.43M+'];
+    const perCapitaMarkers = ['<8000', '8000-9000', '9000-10000', '10000+'];
+    const markers = ['<200,000', '200,000-500,000', '500,000-1M', '1M+'];
     const colordivs = [];
 
     for (let i = 0; i < divisions; i++) {
