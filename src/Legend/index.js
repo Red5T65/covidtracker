@@ -5,7 +5,7 @@ export default function Legend(props) {
     const {
         label,
         perCapita,
-        colors,
+        colors
     } = props;
 
     const divisions = 4;
