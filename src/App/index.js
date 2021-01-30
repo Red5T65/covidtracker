@@ -103,10 +103,7 @@ class CountryMap extends React.Component {
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
-            let value = state[key];
-            if (key === 'totalDist') {
-                value = value / 2;
-            }
+            const value = state[key];
             const valuePerCapita = value / (population / 100000);
 
             const elem = svg.getElementById(stateID);

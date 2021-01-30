@@ -5,11 +5,16 @@ export default function Legend(props) {
     const {
         label,
         perCapita,
-        colors
+        colors,
     } = props;
 
     const divisions = 4;
-    const perCapitaMarkers = ['<8000', '8000-9000', '9000-10000', '10000+'];
+    const perCapitaMarkers = [
+        '<8000',
+        '8000-9000',
+        '9000-10000',
+        '10000+'
+    ];
     const markers = ['<200,000', '200,000-500,000', '500,000-1M', '1M+'];
     const colordivs = [];
 

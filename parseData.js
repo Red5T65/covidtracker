@@ -51,9 +51,7 @@ async function parseData() {
             const {
                 territory,
                 totalDist,
-                totalAdmin,
-                dist100k,
-                admin100k
+                totalAdmin
             } = chunk;
 
             const state = getStateByName(territory);
@@ -63,8 +61,6 @@ async function parseData() {
 
             state.totalDist = totalDist;
             state.totalAdmin = totalAdmin;
-            state.dist100k = dist100k;
-            state.admin100k = admin100k;
         });
 
     const popsStreamEnd = parseCSV('population-2019.csv', function(chunk) {
