@@ -14,7 +14,7 @@ const dataPoints = [{
     label: 'COVID-19 Vaccination Status as of 2021-30-01',
     vacData: [{
         key: 'admin1',
-        label: 'Persons With 1+ Doses Per 100,000'
+        label: 'Persons With 1+ Doses'
     }]
 }];
 
