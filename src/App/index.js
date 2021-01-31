@@ -13,8 +13,8 @@ const colors = ['#e60000', '#ff369e', '#0095ff', '#2679ff'];
 const dataPoints = [{
     label: 'COVID-19 Vaccination Status as of 2021-30-01',
     vacData: [{
-        key: 'totalAdmin',
-        label: 'Total Administered'
+        key: 'admin1',
+        label: 'Persons With 1+ Doses Per 100,000'
     }]
 }];
 
