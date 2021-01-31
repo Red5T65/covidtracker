@@ -13,9 +13,6 @@ const colors = ['#e60000', '#ff369e', '#0095ff', '#2679ff'];
 const dataPoints = [{
     label: 'COVID-19 Vaccination Status as of 2021-30-01',
     vacData: [{
-        key: 'totalDist',
-        label: 'Total Distributed'
-    }, {
         key: 'totalAdmin',
         label: 'Total Administered'
     }]
@@ -103,10 +100,7 @@ class CountryMap extends React.Component {
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
-            let value = state[key];
-            if (key === 'totalDist') {
-                value = value / 2;
-            }
+            const value = state[key];
             const valuePerCapita = value / (population / 100000);
 
             const elem = svg.getElementById(stateID);
