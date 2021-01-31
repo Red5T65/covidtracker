@@ -103,7 +103,10 @@ class CountryMap extends React.Component {
         for (let stateID of Object.keys(USA.states)) {
             const state = USA.states[stateID];
             const { population } = state;
-            const value = state[key];
+            let value = state[key];
+            if (key === 'totalDist') {
+                value = value / 2;
+            }
             const valuePerCapita = value / (population / 100000);
 
             const elem = svg.getElementById(stateID);
@@ -114,27 +117,22 @@ class CountryMap extends React.Component {
             const colorval = perCapita
                 ? valuePerCapita
                 : value;
-            if (perCapita === true) {
-                if (colorval < 200000) {
-                    const fill = `${colors[0]}`;
-                    elem.style.fill = fill;
-                } else if (colorval <= 500000) {
-                    const fill = `${colors[1]}`;
-                    elem.style.fill = fill;
-                } else if (colorval <= 1000000) {
-                    const fill = `${colors[2]}`;
-                    elem.style.fill = fill;
-                } else {
-                    const fill = `${colors[3]}`;
-                    elem.style.fill = fill;
-                }
-            } else if (colorval < 8000) {
+            if (colorval < 8000) {
                 const fill = `${colors[0]}`;
                 elem.style.fill = fill;
             } else if (colorval <= 9000) {
                 const fill = `${colors[1]}`;
                 elem.style.fill = fill;
             } else if (colorval <= 10000) {
+                const fill = `${colors[2]}`;
+                elem.style.fill = fill;
+            } else if (colorval < 200000) {
+                const fill = `${colors[0]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 500000) {
+                const fill = `${colors[1]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 1000000) {
                 const fill = `${colors[2]}`;
                 elem.style.fill = fill;
             } else {
