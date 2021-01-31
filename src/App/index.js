@@ -120,6 +120,18 @@ class CountryMap extends React.Component {
             } else if (colorval <= 8179) {
                 const fill = `${colors[2]}`;
                 elem.style.fill = fill;
+            } else if (colorval <= 12119) {
+                const fill = `${colors[3]}`;
+                elem.style.fill = fill;
+            } else if (colorval < 65325) {
+                const fill = `${colors[0]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 313161) {
+                const fill = `${colors[1]}`;
+                elem.style.fill = fill;
+            } else if (colorval <= 767709) {
+                const fill = `${colors[2]}`;
+                elem.style.fill = fill;
             } else {
                 const fill = `${colors[3]}`;
                 elem.style.fill = fill;
