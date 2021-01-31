@@ -4,238 +4,238 @@
             "stateID": "AK",
             "name": "Alaska",
             "totalDist": "192350",
-            "totalAdmin": "110396",
+            "admin1": "88654",
             "population": "731545"
         },
         "AL": {
             "stateID": "AL",
             "name": "Alabama",
             "totalDist": "659400",
-            "totalAdmin": "300915",
+            "admin1": "256601",
             "population": "4903185"
         },
         "AR": {
             "stateID": "AR",
             "name": "Arkansas",
             "totalDist": "453500",
-            "totalAdmin": "269993",
+            "admin1": "221552",
             "population": "3017804"
         },
         "AZ": {
             "stateID": "AZ",
             "name": "Arizona",
             "totalDist": "1012275",
-            "totalAdmin": "521097",
+            "admin1": "439897",
             "population": "7278717"
         },
         "CA": {
             "stateID": "CA",
             "name": "California",
             "totalDist": "5640225",
-            "totalAdmin": "2910562",
+            "admin1": "2415659",
             "population": "39512223"
         },
         "CO": {
             "stateID": "CO",
             "name": "Colorado",
             "totalDist": "813400",
-            "totalAdmin": "521879",
+            "admin1": "409939",
             "population": "5758736"
         },
         "CT": {
             "stateID": "CT",
             "name": "Connecticut",
             "totalDist": "577625",
-            "totalAdmin": "403370",
+            "admin1": "329149",
             "population": "3565287"
         },
         "DC": {
             "stateID": "DC",
             "name": "District of Columbia",
             "totalDist": "148325",
-            "totalAdmin": "73328",
+            "admin1": "57152",
             "population": "705749"
         },
         "DE": {
             "stateID": "DE",
             "name": "Delaware",
             "totalDist": "143775",
-            "totalAdmin": "87300",
+            "admin1": "72684",
             "population": "973764"
         },
         "FL": {
             "stateID": "FL",
             "name": "Florida",
             "totalDist": "3220350",
-            "totalAdmin": "1796246",
+            "admin1": "1554179",
             "population": "21477737"
         },
         "GA": {
             "stateID": "GA",
             "name": "Georgia",
             "totalDist": "1448825",
-            "totalAdmin": "810291",
+            "admin1": "693085",
             "population": "10617423"
         },
         "HI": {
             "stateID": "HI",
             "name": "Hawaii",
             "totalDist": "226800",
-            "totalAdmin": "111165",
+            "admin1": "89428",
             "population": "1415872"
         },
         "IA": {
             "stateID": "IA",
             "name": "Iowa",
             "totalDist": "398600",
-            "totalAdmin": "224347",
+            "admin1": "174655",
             "population": "3155070"
         },
         "ID": {
             "stateID": "ID",
             "name": "Idaho",
             "totalDist": "221550",
-            "totalAdmin": "108873",
+            "admin1": "88975",
             "population": "1787065"
         },
         "IL": {
             "stateID": "IL",
             "name": "Illinois",
             "totalDist": "1658725",
-            "totalAdmin": "884502",
+            "admin1": "685529",
             "population": "12671821"
         },
         "IN": {
             "stateID": "IN",
             "name": "Indiana",
             "totalDist": "929900",
-            "totalAdmin": "581322",
+            "admin1": "475928",
             "population": "6732219"
         },
         "KS": {
             "stateID": "KS",
             "name": "Kansas",
             "totalDist": "412375",
-            "totalAdmin": "190540",
+            "admin1": "157720",
             "population": "2913314"
         },
         "KY": {
             "stateID": "KY",
             "name": "Kentucky",
             "totalDist": "650050",
-            "totalAdmin": "366643",
+            "admin1": "312373",
             "population": "4467673"
         },
         "LA": {
             "stateID": "LA",
             "name": "Louisiana",
             "totalDist": "620425",
-            "totalAdmin": "398312",
+            "admin1": "339450",
             "population": "4648794"
         },
         "MA": {
             "stateID": "MA",
             "name": "Massachusetts",
             "totalDist": "1057000",
-            "totalAdmin": "520504",
+            "admin1": "422803",
             "population": "6892503"
         },
         "MD": {
             "stateID": "MD",
             "name": "Maryland",
             "totalDist": "881675",
-            "totalAdmin": "442565",
+            "admin1": "375525",
             "population": "6045680"
         },
         "ME": {
             "stateID": "ME",
             "name": "Maine",
             "totalDist": "211150",
-            "totalAdmin": "123207",
+            "admin1": "93513",
             "population": "1344212"
         },
         "MI": {
             "stateID": "MI",
             "name": "Michigan",
             "totalDist": "1361500",
-            "totalAdmin": "866663",
+            "admin1": "695236",
             "population": "9986857"
         },
         "MN": {
             "stateID": "MN",
             "name": "Minnesota",
             "totalDist": "834550",
-            "totalAdmin": "440350",
+            "admin1": "340311",
             "population": "5639632"
         },
         "MO": {
             "stateID": "MO",
             "name": "Missouri",
             "totalDist": "834700",
-            "totalAdmin": "408441",
+            "admin1": "313161",
             "population": "6137428"
         },
         "MS": {
             "stateID": "MS",
             "name": "Mississippi",
             "totalDist": "425000",
-            "totalAdmin": "212748",
+            "admin1": "191145",
             "population": "2976149"
         },
         "MT": {
             "stateID": "MT",
             "name": "Montana",
             "totalDist": "141650",
-            "totalAdmin": "92589",
+            "admin1": "71534",
             "population": "1068778"
         },
         "NC": {
             "stateID": "NC",
             "name": "North Carolina",
             "totalDist": "1400375",
-            "totalAdmin": "851223",
+            "admin1": "729507",
             "population": "10488084"
         },
         "ND": {
             "stateID": "ND",
             "name": "North Dakota",
             "totalDist": "106875",
-            "totalAdmin": "86175",
+            "admin1": "63773",
             "population": "762062"
         },
         "NE": {
             "stateID": "NE",
             "name": "Nebraska",
             "totalDist": "288375",
-            "totalAdmin": "158370",
+            "admin1": "120121",
             "population": "1934408"
         },
         "NH": {
             "stateID": "NH",
             "name": "New Hampshire",
             "totalDist": "203550",
-            "totalAdmin": "117408",
+            "admin1": "92305",
             "population": "1359711"
         },
         "NJ": {
             "stateID": "NJ",
             "name": "New Jersey",
             "totalDist": "1231525",
-            "totalAdmin": "727426",
+            "admin1": "616618",
             "population": "8882190"
         },
         "NM": {
             "stateID": "NM",
             "name": "New Mexico",
             "totalDist": "317800",
-            "totalAdmin": "238755",
+            "admin1": "189082",
             "population": "2096829"
         },
         "NV": {
             "stateID": "NV",
             "name": "Nevada",
             "totalDist": "339900",
-            "totalAdmin": "210185",
+            "admin1": "179805",
             "population": "3080156"
         },
         "NY": {
@@ -247,112 +247,112 @@
             "stateID": "OH",
             "name": "Ohio",
             "totalDist": "1553900",
-            "totalAdmin": "843099",
+            "admin1": "716677",
             "population": "11689100"
         },
         "OK": {
             "stateID": "OK",
             "name": "Oklahoma",
             "totalDist": "594925",
-            "totalAdmin": "386688",
+            "admin1": "323625",
             "population": "3956971"
         },
         "OR": {
             "stateID": "OR",
             "name": "Oregon",
             "totalDist": "614525",
-            "totalAdmin": "359391",
+            "admin1": "299508",
             "population": "4217737"
         },
         "PA": {
             "stateID": "PA",
             "name": "Pennsylvania",
             "totalDist": "1973775",
-            "totalAdmin": "972742",
+            "admin1": "777260",
             "population": "12801989"
         },
         "PR": {
             "stateID": "PR",
             "name": "Puerto Rico",
             "totalDist": "530850",
-            "totalAdmin": "224303",
+            "admin1": "174840",
             "population": "3193694"
         },
         "RI": {
             "stateID": "RI",
             "name": "Rhode Island",
             "totalDist": "157525",
-            "totalAdmin": "83607",
+            "admin1": "63263",
             "population": "1059361"
         },
         "SC": {
             "stateID": "SC",
             "name": "South Carolina",
             "totalDist": "558050",
-            "totalAdmin": "385158",
+            "admin1": "322195",
             "population": "5148714"
         },
         "SD": {
             "stateID": "SD",
             "name": "South Dakota",
             "totalDist": "123800",
-            "totalAdmin": "97231",
+            "admin1": "70502",
             "population": "884659"
         },
         "TN": {
             "stateID": "TN",
             "name": "Tennessee",
             "totalDist": "953600",
-            "totalAdmin": "545921",
+            "admin1": "400950",
             "population": "6829174"
         },
         "TX": {
             "stateID": "TX",
             "name": "Texas",
             "totalDist": "3659550",
-            "totalAdmin": "2219867",
+            "admin1": "1804291",
             "population": "28995881"
         },
         "UT": {
             "stateID": "UT",
             "name": "Utah",
             "totalDist": "401375",
-            "totalAdmin": "271127",
+            "admin1": "219468",
             "population": "3205958"
         },
         "VA": {
             "stateID": "VA",
             "name": "Virginia",
             "totalDist": "1186375",
-            "totalAdmin": "724768",
+            "admin1": "598853",
             "population": "8535519"
         },
         "VT": {
             "stateID": "VT",
             "name": "Vermont",
             "totalDist": "99750",
-            "totalAdmin": "61737",
+            "admin1": "47485",
             "population": "623989"
         },
         "WA": {
             "stateID": "WA",
             "name": "Washington",
             "totalDist": "1005500",
-            "totalAdmin": "607071",
+            "admin1": "496008",
             "population": "7614893"
         },
         "WI": {
             "stateID": "WI",
             "name": "Wisconsin",
             "totalDist": "793750",
-            "totalAdmin": "406869",
+            "admin1": "339296",
             "population": "5822434"
         },
         "WV": {
             "stateID": "WV",
             "name": "West Virginia",
             "totalDist": "278400",
-            "totalAdmin": "239963",
+            "admin1": "181839",
             "population": "1792147"
         },
         "WY": {
@@ -360,7 +360,7 @@
             "name": "Wyoming",
             "population": "578759",
             "totalDist": "85750",
-            "totalAdmin": "49166"
+            "admin1": "41441"
         }
     },
     "national": {

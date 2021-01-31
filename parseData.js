@@ -1,4 +1,4 @@
-!/usr/bin/env node
+#!/usr/bin/env node
 
 'use strict';
 
@@ -51,7 +51,7 @@ async function parseData() {
             const {
                 territory,
                 totalDist,
-                totalAdmin
+                admin1
             } = chunk;
 
             const state = getStateByName(territory);
@@ -60,7 +60,7 @@ async function parseData() {
             }
 
             state.totalDist = totalDist;
-            state.totalAdmin = totalAdmin;
+            state.admin1 = admin1;
         });
 
     const popsStreamEnd = parseCSV('population-2019.csv', function(chunk) {
