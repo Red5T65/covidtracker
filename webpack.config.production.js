@@ -6,6 +6,8 @@ const config = require('./webpack.config.base.js');
 
 config.mode = 'production';
 
+config.output.publicPath = '/covidtracker/';
+
 if (!config.module) {
     config.module = {};
 }
