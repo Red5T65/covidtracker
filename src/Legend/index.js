@@ -10,10 +10,10 @@ export default function Legend(props) {
 
     const divisions = 4;
     const perCapitaMarkers = [
-        '<8000',
-        '8000-9000',
-        '9000-10000',
-        '10000+'
+        '4979-5536',
+        '5536-6789',
+        '6789-8179',
+        '8179+'
     ];
     const markers = ['<200,000', '200,000-500,000', '500,000-1M', '1M+'];
     const colordivs = [];
@@ -42,6 +42,7 @@ export default function Legend(props) {
         <div className={classes.colordivs}>
             {colordivs}
         </div>
-        Data obtained from CDC COVID-19 Database
+            Data obtained from CDC COVID-19 Database
+            Values listed are 10th, median, and 90th percentile respectively
     </div>;
 }
