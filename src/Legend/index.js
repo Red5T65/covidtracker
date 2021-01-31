@@ -42,7 +42,7 @@ export default function Legend(props) {
         <div className={classes.colordivs}>
             {colordivs}
         </div>
-            Data obtained from CDC COVID-19 Database
+            Data obtained from CDC COVID-19 Database.
             Values listed are 10th, median, and 90th percentile respectively
     </div>;
 }
