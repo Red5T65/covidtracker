@@ -46,7 +46,7 @@ async function parseData() {
     }
 
     const statesStreamEnd = parseCSV(
-        '2021-01-30covidvac.csv',
+        '2021-02-07covidvac.csv',
         function(chunk) {
             const {
                 territory,
