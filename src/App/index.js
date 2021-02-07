@@ -101,7 +101,7 @@ class CountryMap extends React.Component {
             const state = USA.states[stateID];
             const { population } = state;
             const value = state[key];
-            const valuePerCapita = value / (population / 100000);
+            const valuePerCapita = (value * 100000) / population;
 
             const elem = svg.getElementById(stateID);
             if (elem === null) {
