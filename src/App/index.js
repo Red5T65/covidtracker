@@ -11,7 +11,7 @@ import classes from './index.less';
 const colors = ['#e60000', '#ff369e', '#0095ff', '#2679ff'];
 
 const dataPoints = [{
-    label: 'COVID-19 Vaccination Status as of 2021-30-01',
+    label: 'COVID-19 Vaccination Status as of 2021-07-02',
     vacData: [{
         key: 'admin1',
         label: 'Persons With 1+ Doses'
