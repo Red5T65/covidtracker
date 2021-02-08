@@ -10,10 +10,10 @@ export default function Legend(props) {
 
     const divisions = 4;
     const perCapitaMarkers = [
-        '7175-7854',
-        '7854-9152',
-        '9152-1168',
-        '11168-14532'
+        '7529-7885',
+        '7885-9175',
+        '9175-10731',
+        '10731-14532'
     ];
     const markers = [
         '56076-87317',
